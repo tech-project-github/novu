@@ -34,7 +34,6 @@ module.exports = function (shipit) {
 
   shipit.on('sharedEnd', function () {
     return runTasks([
-      'yarn install',
       'pm2 stop novu-web',
       'pm2 delete novu-web',
       'pm2 start /home/ubuntu/ecosystem.config.js --only novu-web',
@@ -47,7 +46,9 @@ module.exports = function (shipit) {
     var unfoldTasks = function () {
       if (tasks.length > 0) {
         var task = 'cd ' + cwd + ' && ' + tasks.splice(0, 1)[0];
+
         return function () {
+          // eslint-disable-next-line promise/always-return
           shipit.remote(task).then(function () {
             runTasks(tasks);
           });

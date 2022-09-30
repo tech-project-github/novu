@@ -34,7 +34,6 @@ module.exports = function (shipit) {
 
   shipit.on('sharedEnd', function () {
     return runTasks([
-      'npm install',
       'pm2 stop novu-api',
       'pm2 delete novu-api',
       'pm2 start /home/ubuntu/ecosystem.config.js --only novu-api',

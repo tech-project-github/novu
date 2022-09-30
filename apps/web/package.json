@@ -21,8 +21,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "lint": "eslint src",
-    "lint:fix": "pnpm lint -- --fix",
-    "deploy": "shipit production deploy -r $branch -s $serverip"
+    "lint:fix": "pnpm lint -- --fix"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",

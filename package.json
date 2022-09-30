@@ -69,6 +69,9 @@
     "deploy:production:web": "nx run @novu/web:deploy --",
     "deploy:production:widget": "nx run @novu/widget:deploy --"
   },
+  "dependencies": {
+    "shipit-cli": "^5.1.0"
+  },
   "devDependencies": {
     "@auto-it/npm": "^10.36.5",
     "@auto-it/released": "^10.36.5",

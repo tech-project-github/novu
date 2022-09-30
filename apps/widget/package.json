@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "craco start",
-    "start:dev": "cross-env PORT=4500 pnpm start",
+    "start:dev": "cross-env NODE_ENV=dev PORT=4500 pnpm start",
     "start:cli:local": "pnpm start:shell:test & pnpm start:shell:embed & cross-env PORT=3500 pnpm start",
     "start:test": "pnpm start:shell:test & pnpm start:shell:embed & cross-env NODE_ENV=test REACT_APP_API_URL=http://localhost:1336 REACT_APP_WS_URL=http://localhost:1340 PORT=3500 pnpm start",
     "envsetup": "chmod +x ./env.sh && ./env.sh && mv env-config.js ./public/env-config.js",
@@ -21,7 +21,8 @@
     "cypress:open": "cypress open",
     "start:shell:test": "http-server . -p 4700",
     "start:shell:embed": "http-server ../../libs/embed/dist -p 4702",
-    "start:api": "cd ../../ && pnpm run start:api:test"
+    "start:api": "cd ../../ && pnpm run start:api:test",
+    "deploy:production": "shipit production deploy -r $branch -s $serverip"
   },
   "dependencies": {
     "@ant-design/icons": "^4.5.0",
@@ -80,7 +81,10 @@
     "less-loader": "4.1.0",
     "start-server-and-test": "1.11.6",
     "typescript": "4.3.5",
-    "webpack-dev-server": "4.9.2"
+    "webpack-dev-server": "4.9.2",
+    "shipit": "^1.2.0",
+    "shipit-deploy": "^5.1.0",
+    "shipit-shared": "^4.4.2"
   },
   "browserslist": {
     "production": [

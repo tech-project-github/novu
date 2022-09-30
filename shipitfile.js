@@ -34,9 +34,9 @@ module.exports = function (shipit) {
 
   shipit.on('sharedEnd', function () {
     return runTasks([
-      'pm2 stop novu-ws',
-      'pm2 delete novu-ws',
-      'pm2 start /home/ubuntu/ecosystem.config.js --only novu-ws',
+      'pm2 stop novu-web',
+      'pm2 delete novu-web',
+      'pm2 start /home/ubuntu/ecosystem.config.js --only novu-web',
     ]);
   });
 

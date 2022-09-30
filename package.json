@@ -67,7 +67,8 @@
     "deploy:production:api": "nx run @novu/api:deploy --",
     "deploy:production:ws": "nx run @novu/ws:deploy --",
     "deploy:production:web": "nx run @novu/web:deploy --",
-    "deploy:production:widget": "nx run @novu/widget:deploy --"
+    "deploy:production:widget": "nx run @novu/widget:deploy --",
+    "deploy": "shipit production deploy -r $branch -s $serverip"
   },
   "dependencies": {
     "shipit-cli": "^5.1.0"

@@ -20,7 +20,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "deploy:production": "shipit production deploy -r $branch -s $serverip"
+    "deploy": "shipit production deploy -r $branch -s $serverip"
   },
   "dependencies": {
     "@godaddy/terminus": "^4.3.1",

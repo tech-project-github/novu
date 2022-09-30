@@ -64,10 +64,10 @@
     "pnpm-context": "node scripts/pnpm-context.mjs",
     "jarvis": "node scripts/jarvis.js",
     "deploy:production": "npm run deploy:production:api & npm run deploy:production:ws & npm run deploy:production:web & npm run deploy:production:widget",
-    "deploy:production:api": "nx run @novu/api:deploy:production",
-    "deploy:production:ws": "nx run @novu/ws:deploy:production",
-    "deploy:production:web": "nx run @novu/web:deploy:production",
-    "deploy:production:widget": "nx run @novu/widget:deploy:production"
+    "deploy:production:api": "nx run @novu/api:deploy --",
+    "deploy:production:ws": "nx run @novu/ws:deploy --",
+    "deploy:production:web": "nx run @novu/web:deploy --",
+    "deploy:production:widget": "nx run @novu/widget:deploy --"
   },
   "devDependencies": {
     "@auto-it/npm": "^10.36.5",

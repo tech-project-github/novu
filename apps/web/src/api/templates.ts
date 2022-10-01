@@ -1,4 +1,4 @@
-import { ICreateNotificationTemplateDto } from '@novu/shared';
+import { ICreateNotificationTemplateDto } from '../../../../libs/shared';
 import { api } from './api.client';
 
 export async function createTemplate(data: ICreateNotificationTemplateDto) {

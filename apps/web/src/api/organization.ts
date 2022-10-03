@@ -1,4 +1,4 @@
-import { MemberRoleEnum } from '@novu/shared';
+import { MemberRoleEnum } from '@novu/shared/dist';
 import { api } from './api.client';
 
 export function getOrganizations() {

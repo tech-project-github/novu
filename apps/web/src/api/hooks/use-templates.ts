@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { INotificationTemplate } from '@novu/shared';
+import { INotificationTemplate } from '@novu/shared/dist';
 import { getNotificationsList } from '../notifications';
 import { useEnvController } from '../../store/use-env-controller';
 

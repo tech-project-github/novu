@@ -22,7 +22,7 @@
     "lint:styles:fix": "stylelint --fix --ignore-path .gitignore '{**/*,*}.{css,sass,scss,md,html}'",
     "lint:md": "markdownlint --ignore-path .gitignore .",
     "lint:md:fix": "markdownlint --fix --ignore-path .gitignore .",
-    "prepare": "cd .. && husky install docs/.husky"
+
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.20",

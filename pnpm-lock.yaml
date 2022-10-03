@@ -401,7 +401,7 @@ importers:
       '@mantine/spotlight': ^5.3.2
       '@novu/dal': ^0.8.0
       '@novu/notification-center': ^0.8.0
-      '@novu/shared': ../../libs/shared
+      '@novu/shared': ../../libs/shared/dist
       '@novu/testing': ^0.8.0
       '@sentry/react': ^6.3.1
       '@sentry/tracing': ^6.3.1
@@ -501,7 +501,7 @@ importers:
       '@mantine/prism': 4.1.0_3ti3pstfevj7ngnpjpzwas3f5e
       '@mantine/spotlight': 5.4.1_3ti3pstfevj7ngnpjpzwas3f5e
       '@novu/notification-center': link:../../packages/notification-center
-      '@novu/shared': link:../../libs/shared
+      '@novu/shared': link:../../libs/shared/dist
       '@sentry/react': 6.19.3_react@17.0.2
       '@sentry/tracing': 6.19.3
       '@storybook/addon-docs': 6.4.19_ykbivfpcaiflaezdx4iiz2aax4
@@ -1198,7 +1198,7 @@ importers:
       '@types/node': 14.18.12
       codecov: 3.8.3
       jest: 27.5.1
-      ts-jest: 27.1.4_b4vkfpvo4m6gii5wkcsqftzefm
+      ts-jest: 27.1.4_ghnj4347cpeuki2qbazzoz3bra
       typedoc: 0.19.2_typescript@4.1.3
       typescript: 4.1.3
 
@@ -1286,7 +1286,7 @@ importers:
       open-cli: 6.0.1
       rimraf: 3.0.2
       run-p: 0.0.0
-      ts-jest: 27.1.4_b4vkfpvo4m6gii5wkcsqftzefm
+      ts-jest: 27.1.4_ghnj4347cpeuki2qbazzoz3bra
       typedoc: 0.19.2_typescript@4.1.3
       typescript: 4.1.3
 
@@ -47996,7 +47996,7 @@ packages:
       schema-utils: 3.1.1
       serialize-javascript: 5.0.1
       source-map: 0.6.1
-      terser: 5.12.1
+      terser: 5.14.1
       webpack: 4.46.0
       webpack-sources: 1.4.3
     transitivePeerDependencies:
@@ -48710,6 +48710,40 @@ packages:
       make-error: 1.3.6
       semver: 7.3.7
       typescript: 4.3.5
+      yargs-parser: 20.2.9
+    dev: true
+
+  /ts-jest/27.1.4_ghnj4347cpeuki2qbazzoz3bra:
+    resolution: {integrity: sha512-qjkZlVPWVctAezwsOD1OPzbZ+k7zA5z3oxII4dGdZo5ggX/PL7kvwTM0pXTr10fAtbiVpJaL3bWd502zAhpgSQ==}
+    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
+    hasBin: true
+    peerDependencies:
+      '@babel/core': '>=7.0.0-beta.0 <8'
+      '@types/jest': ^27.0.0
+      babel-jest: '>=27.0.0 <28'
+      esbuild: '*'
+      jest: ^27.0.0
+      typescript: '>=3.8 <5.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@types/jest':
+        optional: true
+      babel-jest:
+        optional: true
+      esbuild:
+        optional: true
+    dependencies:
+      '@types/jest': 27.4.0
+      bs-logger: 0.2.6
+      fast-json-stable-stringify: 2.1.0
+      jest: 27.5.1
+      jest-util: 27.5.1
+      json5: 2.2.1
+      lodash.memoize: 4.1.2
+      make-error: 1.3.6
+      semver: 7.3.7
+      typescript: 4.1.3
       yargs-parser: 20.2.9
     dev: true
 

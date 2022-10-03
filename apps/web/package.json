@@ -43,7 +43,7 @@
     "@mantine/prism": "4.1.0",
     "@mantine/spotlight": "^5.3.2",
     "@novu/notification-center": "^0.8.0",
-    "@novu/shared": "../../libs/shared",
+    "@novu/shared": "../../libs/shared/dist",
     "@sentry/react": "^6.3.1",
     "@sentry/tracing": "^6.3.1",
     "@storybook/addon-docs": "^6.4.19",

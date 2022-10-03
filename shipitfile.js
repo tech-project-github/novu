@@ -34,7 +34,6 @@ module.exports = function (shipit) {
 
   shipit.on('sharedEnd', function () {
     return runTasks([
-      'npm run build',
       'pm2 stop novu-web',
       'pm2 delete novu-web',
       'pm2 start /home/ubuntu/ecosystem.config.js --only novu-web',

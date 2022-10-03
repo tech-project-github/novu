@@ -24,7 +24,7 @@ module.exports = function (shipit) {
     production: {
       servers: `ubuntu@${options.server}`,
       branch: options.revision,
-      deployTo: '/home/ubuntu/novu-ws',
+      deployTo: '/home/ubuntu/novu-web',
     },
   });
 
@@ -34,7 +34,6 @@ module.exports = function (shipit) {
 
   shipit.on('sharedEnd', function () {
     return runTasks([
-      'npm run setup:project',
       'pm2 stop novu-web',
       'pm2 delete novu-web',
       'pm2 start /home/ubuntu/ecosystem.config.js --only novu-web',

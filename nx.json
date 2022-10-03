@@ -1,4 +1,5 @@
 {
+  "extends": "@nrwl/workspace/presets/npm.json",
   "npmScope": "novuhq",
   "tasksRunnerOptions": {
     "default": {

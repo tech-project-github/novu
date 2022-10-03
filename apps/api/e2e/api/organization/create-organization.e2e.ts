@@ -1,7 +1,6 @@
 import { MemberRepository, OrganizationRepository } from '@novu/dal';
 import { UserSession } from '@novu/testing';
-// eslint-disable-next-line no-restricted-imports
-import { MemberRoleEnum } from '@novu/shared/src';
+import { MemberRoleEnum } from '@novu/shared';
 import { expect } from 'chai';
 
 describe('Create Organization - /organizations (POST)', async () => {

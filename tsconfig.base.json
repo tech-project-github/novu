@@ -17,7 +17,6 @@
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
     "declarationMap": true,
-    "skipLibCheck": true,
-    "rootDirs": ["libs/shared"]
+    "skipLibCheck": true
   }
 }

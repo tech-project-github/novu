@@ -3,7 +3,7 @@
   "version": "0.8.0",
   "private": true,
   "scripts": {
-    "start": "cross-env PORT=4200 react-app-rewired start",
+    "start": "cross-env PORT=4300 react-app-rewired start",
     "prebuild": "rimraf build",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",

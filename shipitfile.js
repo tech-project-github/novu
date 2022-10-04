@@ -24,7 +24,7 @@ module.exports = function (shipit) {
     production: {
       servers: `ubuntu@${options.server}`,
       branch: options.revision,
-      deployTo: '/home/ubuntu/novu-web',
+      deployTo: '/home/ubuntu/novu',
     },
   });
 
@@ -38,6 +38,9 @@ module.exports = function (shipit) {
       'pm2 stop novu-api',
       'pm2 delete novu-api',
       'pm2 start /home/ubuntu/ecosystem.config.js --only novu-api',
+      'pm2 stop novu-ws',
+      'pm2 delete novu-ws',
+      'pm2 start /home/ubuntu/ecosystem.config.js --only novu-ws',
       'pm2 stop novu-web',
       'pm2 delete novu-web',
       'pm2 start /home/ubuntu/ecosystem.config.js --only novu-web',

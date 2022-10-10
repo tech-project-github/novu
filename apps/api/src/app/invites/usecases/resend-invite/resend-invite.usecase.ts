@@ -31,23 +31,21 @@ export class ResendInvite {
 
     const token = createGuid();
 
-    if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'prod') {
-      const novu = new Novu(process.env.NOVU_API_KEY);
+    const novu = new Novu(process.env.NOVU_API_KEY);
 
-      await novu.trigger(process.env.NOVU_TEMPLATEID_INVITE_TO_ORGANISATION || 'invite-to-organization-wBnO8NpDn', {
-        to: {
-          subscriberId: foundInvitee.invite.email,
-          email: foundInvitee.invite.email,
-        },
-        payload: {
-          email: foundInvitee.invite.email,
-          inviteeName: capitalize(foundInvitee.invite.email.split('@')[0]),
-          organizationName: capitalize(organization.name),
-          inviterName: capitalize(inviterUser.firstName),
-          acceptInviteUrl: `${process.env.FRONT_BASE_URL}/auth/invitation/${token}`,
-        },
-      });
-    }
+    await novu.trigger(process.env.NOVU_TEMPLATEID_INVITE_TO_ORGANISATION || 'invite-to-organization-wBnO8NpDn', {
+      to: {
+        subscriberId: foundInvitee.invite.email,
+        email: foundInvitee.invite.email,
+      },
+      payload: {
+        email: foundInvitee.invite.email,
+        inviteeName: capitalize(foundInvitee.invite.email.split('@')[0]),
+        organizationName: capitalize(organization.name),
+        inviterName: capitalize(inviterUser.firstName),
+        acceptInviteUrl: `${process.env.FRONT_BASE_URL}/auth/invitation/${token}`,
+      },
+    });
 
     await this.memberRepository.update(foundInvitee, {
       memberStatus: MemberStatusEnum.INVITED,

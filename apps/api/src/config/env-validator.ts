@@ -38,6 +38,7 @@ const validators: { [K in keyof any]: ValidatorSpec<any[K]> } = {
     default: '',
   }),
   STORE_ENCRYPTION_KEY: str32(),
+  API_ROOT_URL: str(),
 };
 
 if (process.env.NODE_ENV !== 'local' && process.env.NODE_ENV !== 'test') {

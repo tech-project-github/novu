@@ -46,7 +46,7 @@ export class AcceptInvite {
   async sendInviterAcceptedEmail(inviter: UserEntity, member: MemberEntity) {
     try {
       if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'prod') {
-        const novu = new Novu(process.env.NOVU_API_KEY);
+        const novu = new Novu(process.env.NOVU_API_KEY, { backendUrl: process.env.API_ROOT_URL });
 
         await novu.trigger(process.env.NOVU_TEMPLATEID_INVITE_ACCEPTED || 'invite-accepted-dEQAsKD1E', {
           to: {

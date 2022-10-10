@@ -32,7 +32,7 @@ export class ResendInvite {
     const token = createGuid();
 
     if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'prod') {
-      const novu = new Novu(process.env.NOVU_API_KEY);
+      const novu = new Novu(process.env.NOVU_API_KEY, { backendUrl: process.env.API_ROOT_URL });
 
       await novu.trigger(process.env.NOVU_TEMPLATEID_INVITE_TO_ORGANISATION || 'invite-to-organization-wBnO8NpDn', {
         to: {

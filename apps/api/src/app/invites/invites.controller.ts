@@ -3,6 +3,7 @@ import {
   ClassSerializerInterceptor,
   Controller,
   Get,
+  Logger,
   Param,
   Post,
   UseGuards,
@@ -73,6 +74,8 @@ export class InvitesController {
       email: body.email,
       role: body.role,
     });
+
+    Logger.log(`Got this on invite -->`, user._id, user.organizationId, body.email, body.role);
 
     await this.inviteMemberUsecase.execute(command);
 

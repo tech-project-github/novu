@@ -1,4 +1,4 @@
-import { Inject, Injectable, Scope } from '@nestjs/common';
+import { Inject, Injectable, Logger, Scope } from '@nestjs/common';
 import { OrganizationRepository, UserRepository, MemberRepository } from '@novu/dal';
 import { MemberRoleEnum, MemberStatusEnum } from '@novu/shared';
 import { Novu } from '@novu/node';
@@ -32,6 +32,7 @@ export class InviteMember {
     const token = createGuid();
 
     if (process.env.NOVU_API_KEY && (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'prod')) {
+      Logger.log(`NOVU_API_KEY --> `, process.env.NOVU_API_KEY);
       const novu = new Novu(process.env.NOVU_API_KEY);
 
       await novu.trigger(process.env.NOVU_TEMPLATEID_INVITE_TO_ORGANISATION || 'invite-to-organization-wBnO8NpDn', {

@@ -40,7 +40,7 @@ export async function bootstrap(expressApp?): Promise<INestApplication> {
   if (expressApp) {
     app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp));
   } else {
-    app = await NestFactory.create(AppModule);
+    app = await NestFactory.create(AppModule, { logger: [`error`, `log`, `warn`] });
   }
 
   if (process.env.SENTRY_DSN) {

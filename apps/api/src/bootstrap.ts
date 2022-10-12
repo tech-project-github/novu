@@ -112,7 +112,12 @@ const corsOptionsDelegate = function (req, callback) {
   if (['dev', 'test', 'local'].includes(process.env.NODE_ENV) || isWidgetRoute(req.url)) {
     corsOptions.origin = '*';
   } else {
-    corsOptions.origin = [...process.env.WILD_CARDS, process.env.FRONT_BASE_URL, process.env.WIDGET_BASE_URL];
+    corsOptions.origin = [
+      /^(https:\/\/([^\.]*\.)?leapscholar\.com)$/i,
+      /^(https:\/\/([^\.]*\.)?unisetu\.com)$/i,
+      process.env.FRONT_BASE_URL,
+      process.env.WIDGET_BASE_URL,
+    ];
   }
   callback(null, corsOptions);
 };

@@ -75,8 +75,6 @@ export class InvitesController {
       role: body.role,
     });
 
-    Logger.log(`Got this on invite -->`, user._id, user.organizationId, body.email, body.role);
-
     await this.inviteMemberUsecase.execute(command);
 
     return {

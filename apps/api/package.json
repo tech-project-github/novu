@@ -11,7 +11,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "precommit": "lint-staged",
     "docker:build": "pnpm --silent --workspace-root pnpm-context -- apps/api/Dockerfile | docker build --build-arg PACKAGE_PATH=apps/api - -t novu-api",
-    "start": "pnpm start:dev",
+    "start": "pnpm start:prod",
     "start:dev": "cross-env TZ=UTC nest start --watch",
     "start:test": "cross-env NODE_ENV=test PORT=1336 TZ=UTC nest start --watch",
     "start:debug": "TZ=UTC nodemon --config nodemon-debug.json",

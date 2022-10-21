@@ -18,7 +18,7 @@ module.exports = function (shipit) {
       keepReleases: 3,
       shared: {
         overwrite: true,
-        dirs: [], // todo: add node_modules to this.
+        dirs: [`node_modules`], // todo: add node_modules to this.
       },
     },
     production: {

@@ -51,7 +51,8 @@ export const ActivityItem = ({ item }) => {
                   }}
                   data-test-id="row-template-name"
                 >
-                  {item.template.name}
+                  {/**Adding a null check until fixed */}
+                  {item?.template?.name || `template name not found`}
                 </h3>
                 <When truthy={status === ExecutionDetailsStatusEnum.SUCCESS}>
                   <Text data-test-id="status-badge-item" color={colors.success}>

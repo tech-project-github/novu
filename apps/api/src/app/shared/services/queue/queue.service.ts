@@ -8,7 +8,7 @@ export const WS_SOCKET_QUEUE = 'ws_socket_queue';
 export class QueueService {
   private bullConfig: Bull.QueueOptions = {
     settings: {
-      lockDuration: 90000,
+      lockDuration: 300000,
       maxStalledCount: 0,
     },
     redis: {

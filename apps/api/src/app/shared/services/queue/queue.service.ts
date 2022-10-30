@@ -9,6 +9,7 @@ export class QueueService {
   private bullConfig: Bull.QueueOptions = {
     settings: {
       lockDuration: 90000,
+      maxStalledCount: 0,
     },
     redis: {
       db: Number(process.env.REDIS_DB_INDEX),

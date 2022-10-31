@@ -16,7 +16,6 @@ export class WorkflowQueueService {
       connectTimeout: 50000,
       keepAlive: 30000,
       family: 4,
-      keyPrefix: getRedisPrefix(),
     },
   };
   private bullConfigNew: Bull.QueueOptions = {

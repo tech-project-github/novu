@@ -66,6 +66,7 @@ export class WorkflowQueueService {
       removeOnComplete: true,
       removeOnFail: true,
       delay,
+      attempts: 0,
     };
     await this.queue.add(id, data, options);
   }

@@ -47,7 +47,7 @@ export class WorkflowQueueService {
       },
       {
         ...this.bullConfig,
-        lockDuration: 300000,
+        lockDuration: 90000,
         concurrency: 100,
       }
     );

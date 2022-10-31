@@ -15,7 +15,6 @@ export class WorkflowQueueService {
       connectTimeout: 50000,
       keepAlive: 30000,
       family: 4,
-      keyPrefix: getRedisPrefix(),
     },
   };
   public readonly queue: Queue;

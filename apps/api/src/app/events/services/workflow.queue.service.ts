@@ -4,6 +4,7 @@ import { JobEntity, JobRepository, JobStatusEnum } from '@novu/dal';
 import { RunJob } from '../usecases/run-job/run-job.usecase';
 import { RunJobCommand } from '../usecases/run-job/run-job.command';
 import { getRedisPrefix } from '@novu/shared';
+import * as Bull from 'bull';
 
 @Injectable()
 export class WorkflowQueueService {
@@ -15,6 +16,26 @@ export class WorkflowQueueService {
       connectTimeout: 50000,
       keepAlive: 30000,
       family: 4,
+      keyPrefix: getRedisPrefix(),
+    },
+  };
+  private bullConfigNew: Bull.QueueOptions = {
+    settings: {
+      lockDuration: 180000,
+      maxStalledCount: 0,
+    },
+    redis: {
+      db: Number(process.env.REDIS_DB_INDEX),
+      port: Number(process.env.REDIS_PORT),
+      host: process.env.REDIS_HOST,
+      connectTimeout: 50000,
+      keepAlive: 30000,
+      family: 4,
+    },
+    defaultJobOptions: {
+      removeOnComplete: true,
+      removeOnFail: true,
+      attempts: 0,
     },
   };
   public readonly queue: Queue;
@@ -48,7 +69,7 @@ export class WorkflowQueueService {
       },
       {
         ...this.bullConfig,
-        lockDuration: 180000,
+        lockDuration: 90000,
         concurrency: 100,
       }
     );
@@ -59,7 +80,7 @@ export class WorkflowQueueService {
       await this.jobRepository.updateStatus(job.data._id, JobStatusEnum.FAILED);
       await this.jobRepository.setError(job.data._id, e);
     });
-    this.queueScheduler = new QueueScheduler('standard', this.bullConfig);
+    this.queueScheduler = new QueueScheduler('standard', this.bullConfigNew);
   }
 
   public async addToQueue(id: string, data: JobEntity, delay?: number | undefined) {
@@ -67,7 +88,6 @@ export class WorkflowQueueService {
       removeOnComplete: true,
       removeOnFail: true,
       delay,
-      attempts: 0,
     };
     await this.queue.add(id, data, options);
   }

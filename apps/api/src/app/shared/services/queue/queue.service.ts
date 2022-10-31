@@ -18,6 +18,7 @@ export class QueueService {
       connectTimeout: 50000,
       keepAlive: 30000,
       family: 4,
+      keyPrefix: getRedisPrefix(),
     },
     defaultJobOptions: {
       removeOnComplete: true,

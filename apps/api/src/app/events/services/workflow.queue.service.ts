@@ -31,6 +31,8 @@ export class WorkflowQueueService {
       ...this.bullConfig,
       defaultJobOptions: {
         removeOnComplete: true,
+        removeOnFail: true,
+        attempts: 0,
       },
     });
     this.worker = new Worker(
@@ -47,7 +49,7 @@ export class WorkflowQueueService {
       },
       {
         ...this.bullConfig,
-        lockDuration: 90000,
+        lockDuration: 180000,
         concurrency: 100,
       }
     );

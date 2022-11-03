@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Body, Controller, Delete, Param, Post, UseGuards } from '@nestjs/common';
 import { IJwtPayload } from '@novu/shared';
 import { v4 as uuidv4 } from 'uuid';
@@ -52,6 +53,11 @@ export class EventsController {
     const mappedSubscribers = this.mapSubscribers(body);
     const transactionId = body.transactionId || uuidv4();
 
+    // eslint-disable-next-line no-console
+    console.log(`-----Received Notification Trigger-----`);
+    console.log(`* Subscribers`, JSON.stringify(mappedSubscribers, null, 4));
+    console.log(`*body`, JSON.stringify(body, null, 4));
+
     await this.triggerEvent.validateTransactionIdProperty(transactionId, user.organizationId, user.environmentId);
 
     return (await this.triggerEvent.execute(
@@ -86,6 +92,7 @@ export class EventsController {
   @ApiOperation({
     summary: 'Broadcast event to all',
     description:
+      // eslint-disable-next-line max-len
       'Trigger a broadcast event to all existing subscribers, could be used to send announcements, etc. In the future could be used to trigger events to a subset of subscribers based on defined filters.',
   })
   async trackEventToAll(
